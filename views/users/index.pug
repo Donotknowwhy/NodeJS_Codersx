@@ -1,0 +1,29 @@
+extends ../layouts/common.pug
+block content
+
+
+
+    h1 Users
+    a(href="/users/create") New
+
+    form(action="/users/search",method='GET',class="form-group")
+        input(type="text",name='q',value=question,class="form-control")
+        button(class="btn btn-primary") Search
+
+    table.table
+        tr  
+            th Name
+            th Phone
+            th Actions
+
+        each user in users
+            tr
+                td=user.name
+                td=user.phone
+                td
+                    a.btn.btn-outline-primary(href="/users/" + user.id) View
+
+
+    
+
+
